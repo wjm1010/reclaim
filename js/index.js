@@ -24,26 +24,28 @@ $(function() {
 		$(".con-hint5").css('opacity', '0');
 	});
 	// 发送验证码
-		/*倒计时*/
-	var InterValObj; 
-	var count = 60; 
+	/*倒计时*/
+	var InterValObj;
+	var count = 60;
 	var curCount;
-	function sendMessage() { 
-	   curCount = count; 
-	   $(".verification-code").attr("disabled", "true"); 
-	   $(".verification-code").val(curCount + "s"); 
-	   InterValObj = window.setInterval(SetRemainTime, 1000); 
-	  //后台验证码TODO 
-	} 
-	function SetRemainTime() { 
-      	if (curCount == 0) {         
-        	window.clearInterval(InterValObj);
-        	$(".verification-code").removeAttr("disabled"); 
-        	$(".verification-code").val("重新发送"); 
-      	}else { 
-        curCount--; 
-        	$(".verification-code").val(curCount + "s"); 
-      	} 
+
+	function sendMessage() {
+		curCount = count;
+		$(".verification-code").attr("disabled", "true");
+		$(".verification-code").val(curCount + "s");
+		InterValObj = window.setInterval(SetRemainTime, 1000);
+		//后台验证码TODO 
+	}
+
+	function SetRemainTime() {
+		if (curCount == 0) {
+			window.clearInterval(InterValObj);
+			$(".verification-code").removeAttr("disabled");
+			$(".verification-code").val("重新发送");
+		} else {
+			curCount--;
+			$(".verification-code").val(curCount + "s");
+		}
 	}
 	$(".verification-code").click(function() {
 		var compact_phone = $('.compact-phone').val()
@@ -71,10 +73,10 @@ $(function() {
 		if (!compact_phone || !/^1(3|4|5|7|8|9)\d{9}$/i.test(compact_phone)) {
 			$(".con-hint3").css('opacity', '1');
 			return false;
-		}	
-		
+		}
+
 		// 验证码验证是否正确
-			// 验证码为空 不正确时执行下面操作 补充不正确
+		// 验证码为空 不正确时执行下面操作 补充不正确
 		if (!send_code) {
 			$(".con-hint5").css('opacity', '1');
 			return false;
@@ -91,8 +93,8 @@ $(function() {
 		//         url: url,
 		//         data: data,
 		//         success: function(res) {
-						// 当表单提交成功之后画板显示
-						// $(".contract-drawing").show()
+		// 当表单提交成功之后画板显示
+		// $(".contract-drawing").show()
 		//         },
 		//         error: function(res) {
 		//         }
@@ -120,43 +122,43 @@ $(function() {
 	var ctx = canvas.getContext("2d");
 	var sureButton = document.getElementById("createImage");
 	// 点击提交按钮事件
-	sureButton.addEventListener("click", function (ev) {
+	sureButton.addEventListener("click", function(ev) {
 		if (!isEmptyCanvas(canvas)) {
 			$(".con-hint4").css('opacity', '1');
-		}else{
+		} else {
 			$(".con-hint4").css('opacity', '0');
 			// 当有图像时,提交成功
-			$('#newImage').attr('src',$('#signName').createSignature('png'));
+			$('#newImage').attr('src', $('#signName').createSignature('png'));
 			var new_image = $('#newImage').attr('src') //图像的地址
 			$(".tj-loading").show() //提示信息加载中
 			$(".export-contract").show() //导出合同禁
 			// 多余内容隐藏
 			$(".contract").hide()
-			 $.ajax({
-		         type: 'GET',
-		         url: url,
-		         data: data,
-		         success: function(res) {
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: data,
+				success: function(res) {
 					$(".tj-loading").hide()
-			 		if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-						$(".adresa-zmluvy").css("height","445px")
+					if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+						$(".adresa-zmluvy").css("height", "445px")
 					} else {
-						$(".adresa-zmluvy").css("height","550px")
+						$(".adresa-zmluvy").css("height", "550px")
 					}
-					$(".adresa-zmluvy").attr('src',path);//给iframe赋予新的地址
+					$(".adresa-zmluvy").attr('src', path); //给iframe赋予新的地址
 					//  导出合同
 					$(".export-contract").css({
 						border: '1px solid #108ee9',
 						background: '#108ee9',
 						cursor: 'pointer'
 					});
-			 	},
-			 	error: function(res) {
-					 console.log(res)
-					 $(".tj-loading").hide()
-			 	}
-			 });
+				},
+				error: function(res) {
+					console.log(res)
+					$(".tj-loading").hide()
+				}
+			});
 		}
-		
+
 	});
 })
