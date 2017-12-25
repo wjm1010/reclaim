@@ -42,25 +42,25 @@ input, button, textarea { outline: none; border-radius: 3px; }
 .contract .contract-operation { margin-left: 15%; }
 .contract .contract-operation span, .contract .verification-code, .export-contract { display: inline-block; text-align: center; line-height: 35px; border-radius: 5px; font-size: 14px; cursor: pointer; width: 140px; height: 40px; }
 .contract .contract-operation span.cancel, .contract .contract-operation span.drawing-cancel { border: 1px solid #ccc; color: #666; }
-.main-title .export-contract { position: absolute; width: 100px; height: 30px; line-height: 30px; padding: 0; right: 0; top: 2px;/* display:  none; */ background: #504b4b; border: 1px solid #504b4b; cursor: no-drop; }
+.main-title .export-contract {position: absolute;width: 100px;height: 30px;line-height: 30px;padding: 0;right: 0;top: 2px;display:none;background: #504b4b;border: 1px solid #504b4b;cursor: no-drop;}
 .contract .contract-operation span.confirm, .contract .verification-code, .export-contract, .contract .contract-operation span.drawing-confirm { background: #108ee9; color: #fff; border: 1px solid #108ee9; }
 .contract .verification-code { padding: 0; height: 28px; line-height: 28px; vertical-align: middle; width: 100px; border: 0; }
 .contract .con-hint1, .contract .con-hint2, .contract .con-hint3, .con-hint4, .con-hint5 { color: red; font-size: 12px; margin-left: 85px; opacity: 0; }
 .con-hint4 { margin-left: 0; margin-right: 2%; }
 .contract .contract-infor { background: #fff; width: 800px; padding: 3%; margin: 0 auto; }
 .bargain-details, .contract-drawing, .contract-title { width: 800px; margin: 0 auto; }
-.contract .contract-drawing { display: none; }
+.contract .contract-drawing {display: none;}
 .contract .contract-drawing .drawing-title { background-color: rgba(242, 242, 242, 1); font-size: 18px; color: #333333; margin: 20px 0; font-weight: bold; }
 .contract .contract-drawing .drawing-board { width: 800px; height: 200px; background: #fff; border: 1px solid; }
 .contract .contract-drawing .contract-operation { height: 57px; background-color: rgba(242, 242, 242, 1); color: #333333; line-height: 57px; padding-right: 10px; margin: 0; text-align: center; }
 .contract .contract-drawing .drawing-title #clearCanvas { color: #169BD5; font-size: 13px; cursor: pointer; }
-.tj-loading { display: none; }
+.tj-loading {display: none;}
 .tj-loading i { position: fixed; z-index: 2; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0, 0, 0, .4); display: inline-block; }
 .tj-loading span { position: fixed; top: 50%; left: 50%; width: 300px; height: 100px; margin-left: -150px; margin-top: -50px; display: inline-block; background: #fff; z-index: 44; text-align: center; line-height: 100px; border-radius: 5px; font-size: 14px; }
 @media screen and (max-width:750px) {
 	.bargain-val { overflow-x: hidden; }
 	.bargain-details, .main-title { width: 90%; margin-left: 5% }
-	.main-title button { width: 24% }
+	.main-title .export-contract{ width: 24% }
 	.contract { width: 100%; padding-bottom: 10px; }
 	.contract .contract-title { width: 90%; margin-left: 5%; font-size: 14px; margin-top: 5%; }
 	.bargain-details iframe { width: 90%; margin-left: 5%; }
@@ -69,7 +69,7 @@ input, button, textarea { outline: none; border-radius: 3px; }
 	.contract div input { width: 69%; padding-left: 1%; }
 	.contract div input.compact-phone { width: 45%; }
 	.contract .contract-operation span, .contract .verification-code { width: 26%; height: 30px; line-height: 30px; }
-	.contract .verification-code { width: 22%; font-size: 12px; border: 0 }
+	.contract .verification-code { width: 21%; font-size: 12px; border: 0 ;background: #108ee9}
 	.contract .contract-main { margin-bottom: 1% }
 	.contract .con-hint1, .contract .con-hint2, .contract .con-hint3, .con-hint5 { margin-left: 30%; }
 	.contract .contract-drawing { width: 100%; }

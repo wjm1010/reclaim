@@ -31,8 +31,7 @@ $(function() {
 
 	function sendMessage() {
 		curCount = count;
-		$(".verification-code").attr("disabled", "true");
-		$(".verification-code").val(curCount + "s");
+		$(".verification-code").html(curCount + "s");
 		InterValObj = window.setInterval(SetRemainTime, 1000);
 		//后台验证码TODO 
 	}
@@ -40,11 +39,10 @@ $(function() {
 	function SetRemainTime() {
 		if (curCount == 0) {
 			window.clearInterval(InterValObj);
-			$(".verification-code").removeAttr("disabled");
-			$(".verification-code").val("重新发送");
+			$(".verification-code").html("重新发送");
 		} else {
 			curCount--;
-			$(".verification-code").val(curCount + "s");
+			$(".verification-code").html(curCount + "s");
 		}
 	}
 	$(".verification-code").click(function() {
@@ -161,4 +159,7 @@ $(function() {
 		}
 
 	});
+	$(".drawing-board").on('touchmove', function(e) {
+		e.preventDefault();
+	})
 })
